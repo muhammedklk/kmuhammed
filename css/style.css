@@ -1373,7 +1373,7 @@ body.hovering .cursor-outline {
 
 .mrq-pill:hover {
     transform: translateY(-5px);
-    border-color: #ff8c5a;
+    border-color: #003cff;
     box-shadow: 0 10px 30px rgba(255, 140, 90, 0.1);
 }
 
