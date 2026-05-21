@@ -47,81 +47,7 @@
 
     </div>
 
-    <style>
-        /* PRELOADER */
-        #preloader {
-            position: fixed;
-            inset: 0;
-            background: #0051ff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 99999;
-            overflow: hidden;
-            transition: .15s linear;
-        }
 
-        .signature-box {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        /* SVG SIZE */
-        .signature-box svg {
-            width: 700px;
-            max-width: 95%;
-            display: block;
-            margin: 0 auto;
-        }
-
-        /* SVG PATH ANIMATION */
-        .signature-box path {
-            fill: transparent !important;
-            stroke: #fff !important;
-            stroke-width: 1.8 !important;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-            stroke-dasharray: 3000;
-            stroke-dashoffset: 3000;
-            animation: signature 20.5s linear forwards;
-        }
-
-
-
-        /* DRAW EFFECT */
-        @keyframes signature {
-            to {
-                stroke-dashoffset: 0;
-                fill: #fff;
-            }
-        }
-
-        .subtitle {
-            font-size: 14px;
-            margin-top: 20px;
-            text-align: center;
-            color: #fff;
-            opacity: .8;
-        }
-
-        /* REMOVE PRELOADER */
-        body.loaded #preloader {
-            opacity: 0;
-            visibility: hidden;
-        }
-    </style>
-
-    <script>
-
-        window.addEventListener("load", () => {
-            setTimeout(() => {
-                document.body.classList.add("loaded");
-            }, 2050);
-        });
-
-    </script>
 
     <!-- Header -->
     <header class="header">
@@ -587,6 +513,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
     <script src="js/main.js"></script>
+
+
+    <script>
+
+        window.addEventListener("load", () => {
+            setTimeout(() => {
+                document.body.classList.add("loaded");
+            }, 2050);
+        });
+
+    </script>
 </body>
 
 </html>
