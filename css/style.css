@@ -337,7 +337,7 @@ body.hovering .cursor-outline {
 
 /* --- Hero --- */
 .hero {
-    min-height: 100vh;
+    min-height: 800px;
     display: flex;
     align-items: center;
     padding-top: 100px;
