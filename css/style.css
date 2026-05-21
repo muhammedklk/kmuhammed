@@ -653,8 +653,7 @@ body.hovering .cursor-outline {
     background-color: #111;
     color: #fff;
     border-radius: 40px 40px 0 0;
-    margin-top: -40px;
-    /* Overlap effect */
+    margin-top: 60px;
     position: relative;
     z-index: 10;
 }
@@ -1024,7 +1023,7 @@ body.hovering .cursor-outline {
 .contact-card {
     border-radius: 32px;
     box-shadow: var(--shadow-soft);
-    margin-bottom: 130px;
+    margin-bottom: 30px;
 }
 
 .footMnText {
