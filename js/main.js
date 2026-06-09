@@ -342,4 +342,68 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- 6. SKILLS REDESIGN FILTERING ---
+    const filterButtons = document.querySelectorAll('.skills-filter-btn');
+    const skillCards = document.querySelectorAll('.skill-redesign-card');
+
+    if (filterButtons.length > 0 && skillCards.length > 0) {
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Ignore click if button is already active
+                if (btn.classList.contains('active')) return;
+
+                filterButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filterValue = btn.getAttribute('data-filter');
+
+                if (window.gsap) {
+                    // Smoothly animate out current cards
+                    gsap.to(skillCards, {
+                        duration: 0.2,
+                        opacity: 0,
+                        scale: 0.95,
+                        y: 10,
+                        stagger: 0.01,
+                        ease: "power2.out",
+                        onComplete: () => {
+                            // Toggle display property
+                            skillCards.forEach(card => {
+                                if (filterValue === 'all' || card.classList.contains(`cat-${filterValue}`)) {
+                                    card.style.display = 'flex';
+                                } else {
+                                    card.style.display = 'none';
+                                }
+                            });
+
+                            // Select visible cards and animate them in
+                            const visibleCards = Array.from(skillCards).filter(c => c.style.display === 'flex');
+                            gsap.fromTo(visibleCards, 
+                                { opacity: 0, scale: 0.95, y: 10 },
+                                {
+                                    duration: 0.35,
+                                    opacity: 1,
+                                    scale: 1,
+                                    y: 0,
+                                    stagger: 0.015,
+                                    ease: "power2.out",
+                                    clearProps: "transform,opacity"
+                                }
+                            );
+                        }
+                    });
+                } else {
+                    // Fallback in case GSAP is missing
+                    skillCards.forEach(card => {
+                        if (filterValue === 'all' || card.classList.contains(`cat-${filterValue}`)) {
+                            card.style.display = 'flex';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                }
+            });
+        });
+    }
+
 });
